@@ -29,8 +29,9 @@ class UsersController < ApplicationController
   end
 
 
-  get "/users/:id" do
-    @user = User.find(session[:user_id])
+  get "/users/:user_name" do
+    user_name = params[:user_name]
+    @user = User.find_by(:username => user_name)
     erb :'/users/mytweets'
   end
 
