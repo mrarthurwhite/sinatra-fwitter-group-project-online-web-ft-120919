@@ -1,0 +1,13 @@
+<h1>Mission: </h1>
+
+<div class="mission">
+
+  <h4>Content: <%= @mission.content %></h4>
+  <p><a href="/missions/<%= @mission.id%>/edit">Edit Mission</a></p>
+
+  <form action="/missions/<%= @mission.id%>" method="post">
+    <input type="hidden" name="_method" value="delete">
+    <input type="submit" value="Delete Mission">
+  </form>
+</div><br>
+

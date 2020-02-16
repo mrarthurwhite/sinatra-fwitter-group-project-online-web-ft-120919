@@ -1,0 +1,10 @@
+Welcome, <%= @user.username%><br>
+<br>
+All missions:
+<br>
+<% @missions.each do |mission| %>
+<p>
+Content: <%= mission.content %>
+</p>
+
+<% end %>

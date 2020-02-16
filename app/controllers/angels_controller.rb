@@ -1,11 +1,9 @@
-class UsersController < ApplicationController
-
-
+class AngelsController < ApplicationController
 
   get "/signup" do
     #binding.pry
     if Helpers.is_logged_in?(session)
-      redirect "/tweets"
+      redirect "/missions"
     end
     erb :'/users/signup'
   end
@@ -22,7 +20,7 @@ class UsersController < ApplicationController
 
     if @user.save
       session[:user_id] = @user.id
-      redirect "/tweets"
+      redirect "/missions"
     else
       redirect "/signup"
     end
@@ -32,13 +30,13 @@ class UsersController < ApplicationController
   get "/users/:user_name" do
     user_name = params[:user_name]
     @user = User.find_by(:username => user_name)
-    erb :'/users/mytweets'
+    erb :'/users/mymissions'
   end
 
 
   get "/login" do
     if Helpers.is_logged_in?(session)
-      redirect "/tweets"
+      redirect "/missions"
     end
     erb :'/users/login'
   end
@@ -48,7 +46,7 @@ class UsersController < ApplicationController
     #binding.pry
     if !!user && !!user.authenticate(params[:password])
       session[:user_id] = user.id
-      redirect "/tweets"
+      redirect "/missions"
     else
       redirect "/failure"
     end

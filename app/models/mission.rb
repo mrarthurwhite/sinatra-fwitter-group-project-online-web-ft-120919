@@ -1,4 +1,4 @@
-class Tweet < ActiveRecord::Base
+class Mission < ActiveRecord::Base
   belongs_to :user
   validates_presence_of :content
 end

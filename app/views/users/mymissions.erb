@@ -1,0 +1,10 @@
+<p>Welcome to your missions, <%= @user.username%>!!</p>
+
+  All missions:
+
+  <% @user.missions.each do |mission| %>
+    <br>
+      * <%= mission.content %>
+    </br>
+  <% end %>
+<p><a href="/logout">Log Out</a></p>
